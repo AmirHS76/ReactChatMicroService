@@ -1,0 +1,133 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Auth.Api", "Src\Services\ReactChat.Auth\ReactChat.Auth.Api\ReactChat.Auth.Api.csproj", "{A142BDD8-217B-9AF3-42FE-61B3FE206CBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Auth.Application", "Src\Services\ReactChat.Auth\ReactChat.Auth.Application\ReactChat.Auth.Application.csproj", "{30A6E016-64F8-B77E-CA6D-C1F03CE0D658}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReactChat.Auth", "ReactChat.Auth", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Auth.Domain", "Src\Services\ReactChat.Auth\ReactChat.Auth.Domain\ReactChat.Auth.Domain.csproj", "{7A879861-A2CA-6E34-8B60-95FB11B69606}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Auth.Infrastructure", "Src\Services\ReactChat.Auth\ReactChat.Auth.Infrastructure\ReactChat.Auth.Infrastructure.csproj", "{7201C6C5-4E03-58A7-8012-58BAF8ED1C9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReactChat.Login", "ReactChat.Login", "{CD97182B-9AE4-492A-B61C-5EB6E882EC50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Login.Api", "Src\Services\ReactChat.Login\ReactChat.Login.Api\ReactChat.Login.Api.csproj", "{0980AD53-B4D6-F517-0548-517072C36548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Login.Application", "Src\Services\ReactChat.Login\ReactChat.Login.Application\ReactChat.Login.Application.csproj", "{F3235716-A742-F267-E2E5-F3DA45F6DCA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Login.Domain", "Src\Services\ReactChat.Login\ReactChat.Login.Domain\ReactChat.Login.Domain.csproj", "{B6630D50-4C23-F61F-4289-63882FEE18EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Login.Infrastructure", "Src\Services\ReactChat.Login\ReactChat.Login.Infrastructure\ReactChat.Login.Infrastructure.csproj", "{984AC317-430C-CBB3-025A-40CC0FBD0E5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ReactChat.Register", "ReactChat.Register", "{648E624F-5C33-44DA-B0CF-0130628D0E04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Register.Api", "Src\Services\ReactChat.Register\ReactChat.Register.Api\ReactChat.Register.Api.csproj", "{BF9560C9-AB1C-2942-8B5A-196A49BFD45A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Register.Application", "Src\Services\ReactChat.Register\ReactChat.Register.Application\ReactChat.Register.Application.csproj", "{3934F3AB-90BA-E83B-C95E-36A75AA138E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Register.Domain", "Src\Services\ReactChat.Register\ReactChat.Register.Domain\ReactChat.Register.Domain.csproj", "{0FB8A5D5-0AEF-2A8E-F6CE-D12817FA1A86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Register.Infrastructure", "Src\Services\ReactChat.Register\ReactChat.Register.Infrastructure\ReactChat.Register.Infrastructure.csproj", "{E098C9E1-A954-B50E-3AEF-1D61AD2F26E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{44AE8625-56F9-4C4A-A8FF-A39A764CEE7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Login.BackgroundTasks", "Src\Services\ReactChat.Login\ReactChat.Login.BackgroundTasks\ReactChat.Login.BackgroundTasks.csproj", "{6E3D95D9-5143-023B-6FDC-78091531DD83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactChat.Shared.Messaging", "Src\Shared\ReactChat.Shared.Messaging\ReactChat.Shared.Messaging.csproj", "{A4A1727D-42CA-F304-405D-4826F3A8CF18}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A142BDD8-217B-9AF3-42FE-61B3FE206CBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A142BDD8-217B-9AF3-42FE-61B3FE206CBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A142BDD8-217B-9AF3-42FE-61B3FE206CBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A142BDD8-217B-9AF3-42FE-61B3FE206CBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A6E016-64F8-B77E-CA6D-C1F03CE0D658}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A6E016-64F8-B77E-CA6D-C1F03CE0D658}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A6E016-64F8-B77E-CA6D-C1F03CE0D658}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A6E016-64F8-B77E-CA6D-C1F03CE0D658}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A879861-A2CA-6E34-8B60-95FB11B69606}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A879861-A2CA-6E34-8B60-95FB11B69606}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A879861-A2CA-6E34-8B60-95FB11B69606}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A879861-A2CA-6E34-8B60-95FB11B69606}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7201C6C5-4E03-58A7-8012-58BAF8ED1C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7201C6C5-4E03-58A7-8012-58BAF8ED1C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7201C6C5-4E03-58A7-8012-58BAF8ED1C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7201C6C5-4E03-58A7-8012-58BAF8ED1C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0980AD53-B4D6-F517-0548-517072C36548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0980AD53-B4D6-F517-0548-517072C36548}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0980AD53-B4D6-F517-0548-517072C36548}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0980AD53-B4D6-F517-0548-517072C36548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3235716-A742-F267-E2E5-F3DA45F6DCA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3235716-A742-F267-E2E5-F3DA45F6DCA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3235716-A742-F267-E2E5-F3DA45F6DCA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3235716-A742-F267-E2E5-F3DA45F6DCA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6630D50-4C23-F61F-4289-63882FEE18EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6630D50-4C23-F61F-4289-63882FEE18EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6630D50-4C23-F61F-4289-63882FEE18EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6630D50-4C23-F61F-4289-63882FEE18EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{984AC317-430C-CBB3-025A-40CC0FBD0E5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{984AC317-430C-CBB3-025A-40CC0FBD0E5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{984AC317-430C-CBB3-025A-40CC0FBD0E5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{984AC317-430C-CBB3-025A-40CC0FBD0E5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF9560C9-AB1C-2942-8B5A-196A49BFD45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF9560C9-AB1C-2942-8B5A-196A49BFD45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF9560C9-AB1C-2942-8B5A-196A49BFD45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF9560C9-AB1C-2942-8B5A-196A49BFD45A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3934F3AB-90BA-E83B-C95E-36A75AA138E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3934F3AB-90BA-E83B-C95E-36A75AA138E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3934F3AB-90BA-E83B-C95E-36A75AA138E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3934F3AB-90BA-E83B-C95E-36A75AA138E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FB8A5D5-0AEF-2A8E-F6CE-D12817FA1A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FB8A5D5-0AEF-2A8E-F6CE-D12817FA1A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FB8A5D5-0AEF-2A8E-F6CE-D12817FA1A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FB8A5D5-0AEF-2A8E-F6CE-D12817FA1A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E098C9E1-A954-B50E-3AEF-1D61AD2F26E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E098C9E1-A954-B50E-3AEF-1D61AD2F26E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E098C9E1-A954-B50E-3AEF-1D61AD2F26E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E098C9E1-A954-B50E-3AEF-1D61AD2F26E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3D95D9-5143-023B-6FDC-78091531DD83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3D95D9-5143-023B-6FDC-78091531DD83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3D95D9-5143-023B-6FDC-78091531DD83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3D95D9-5143-023B-6FDC-78091531DD83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4A1727D-42CA-F304-405D-4826F3A8CF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A1727D-42CA-F304-405D-4826F3A8CF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A1727D-42CA-F304-405D-4826F3A8CF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A1727D-42CA-F304-405D-4826F3A8CF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A142BDD8-217B-9AF3-42FE-61B3FE206CBD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{30A6E016-64F8-B77E-CA6D-C1F03CE0D658} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7A879861-A2CA-6E34-8B60-95FB11B69606} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{7201C6C5-4E03-58A7-8012-58BAF8ED1C9F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{0980AD53-B4D6-F517-0548-517072C36548} = {CD97182B-9AE4-492A-B61C-5EB6E882EC50}
+		{F3235716-A742-F267-E2E5-F3DA45F6DCA1} = {CD97182B-9AE4-492A-B61C-5EB6E882EC50}
+		{B6630D50-4C23-F61F-4289-63882FEE18EC} = {CD97182B-9AE4-492A-B61C-5EB6E882EC50}
+		{984AC317-430C-CBB3-025A-40CC0FBD0E5C} = {CD97182B-9AE4-492A-B61C-5EB6E882EC50}
+		{BF9560C9-AB1C-2942-8B5A-196A49BFD45A} = {648E624F-5C33-44DA-B0CF-0130628D0E04}
+		{3934F3AB-90BA-E83B-C95E-36A75AA138E3} = {648E624F-5C33-44DA-B0CF-0130628D0E04}
+		{0FB8A5D5-0AEF-2A8E-F6CE-D12817FA1A86} = {648E624F-5C33-44DA-B0CF-0130628D0E04}
+		{E098C9E1-A954-B50E-3AEF-1D61AD2F26E8} = {648E624F-5C33-44DA-B0CF-0130628D0E04}
+		{6E3D95D9-5143-023B-6FDC-78091531DD83} = {CD97182B-9AE4-492A-B61C-5EB6E882EC50}
+		{A4A1727D-42CA-F304-405D-4826F3A8CF18} = {44AE8625-56F9-4C4A-A8FF-A39A764CEE7A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B530FD39-E3E9-4043-A269-AF48A4A39E16}
+	EndGlobalSection
+EndGlobal

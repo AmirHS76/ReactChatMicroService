@@ -1,0 +1,49 @@
+version: '3.8'
+services:
+  reactchat.auth.api:
+    build:
+      context: .
+      dockerfile: Src/Services/ReactChat.Auth/ReactChat.Auth.Api/Dockerfile
+    environment:
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "32776:8080"
+    networks:
+      - reactchat-network
+
+  reactchat.login.api:
+    build:
+      context: .
+      dockerfile: Src/Services/ReactChat.Login/ReactChat.Login.Api/Dockerfile
+    environment:
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "32777:8080"
+    networks:
+      - reactchat-network
+
+  reactchat.register.api:
+    build:
+      context: .
+      dockerfile: Src/Services/ReactChat.Register/ReactChat.Register.Api/Dockerfile
+    environment:
+      - ASPNETCORE_HTTP_PORTS=8080
+    ports:
+      - "32778:8080"
+    networks:
+      - reactchat-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    networks:
+      - reactchat-network
+
+networks:
+  reactchat-network:
+    driver: bridge

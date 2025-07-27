@@ -1,0 +1,6 @@
+@ReactChat.Login.Api_HostAddress = http://localhost:5095
+
+GET {{ReactChat.Login.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
