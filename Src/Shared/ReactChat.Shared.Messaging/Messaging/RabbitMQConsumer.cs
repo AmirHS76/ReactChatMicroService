@@ -8,19 +8,21 @@ namespace ReactChat.Shared.Messaging.Messaging
 {
     public class RabbitMQConsumer
     {
-        private readonly RabbitMQConnectionFactory _connectionFactory;
+        private readonly RabbitMQConnector _connectionFactory;
 
-        public RabbitMQConsumer(RabbitMQConnectionFactory connectionFactory)
+        public RabbitMQConsumer(RabbitMQConnector connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }
 
-        public async Task StartBasicConsumeAsync<T>(string queue, Func<T, BasicDeliverEventArgs, Task> onMessage, bool autoAck = false, CancellationToken cancellationToken = default)
+        public async Task StartBasicConsumeAsync<T>(string queue, Func<T, BasicDeliverEventArgs, Task> onMessage, bool autoAck, CancellationToken cancellationToken)
         {
             var channel = await _connectionFactory.CreateChannelAsync();
             var consumer = new AsyncEventingBasicConsumer(channel);
+            await channel.QueueDeclareAsync(queue: queue, durable: true, exclusive: false, autoDelete: false,
+                arguments: null);
 
-            consumer.Received += async (model, ea) =>
+            consumer.ReceivedAsync += async (model, ea) =>
             {
                 var body = ea.Body.ToArray();
                 var message = JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(body));
@@ -30,11 +32,11 @@ namespace ReactChat.Shared.Messaging.Messaging
                 }
                 if (!autoAck)
                 {
-                    channel.BasicAck(ea.DeliveryTag, false);
+                    await channel.BasicAckAsync(ea.DeliveryTag, false, cancellationToken);
                 }
             };
 
-            channel.BasicConsume(queue: queue, autoAck: autoAck, consumer: consumer);
+            await channel.BasicConsumeAsync(queue: queue, autoAck: autoAck, consumer: consumer, cancellationToken);
         }
     }
-} 
+}

@@ -1,12 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using RabbitMQ.Client;
 using ReactChat.Register.Domain.Entities;
 using ReactChat.Register.Infrastructure.Persistence;
 using ReactChat.Shared.Messaging.Config;
+using ReactChat.Shared.Messaging.Connections;
 using ReactChat.Shared.Messaging.Messaging;
-using System.Text;
-using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -17,12 +15,15 @@ builder.Services.AddHttpClient();
 builder.Services.AddOpenApi();
 builder.Services.AddSingleton(sp =>
 {
-    var settings = sp.GetRequiredService<IConfiguration>()
+    var settings = configuration
                      .GetSection("RabbitMQ")
                      .Get<RabbitMQSettings>();
-    var factory = new ReactChat.Shared.Messaging.Connections.RabbitMQConnectionFactory(settings!);
+    var factory = new RabbitMQConnector(settings!);
     return new RabbitMQPublisher(factory);
 });
+var settings = configuration
+                     .GetSection("RabbitMQ")
+                     .Get<RabbitMQSettings>();
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -30,7 +31,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapGet("/api/v1/register", async (AppDbContext db, [FromServices] HttpClient http, [FromServices] RabbitMQPublisher publisher, string email, string password, string username) =>
+app.MapGet("/api/user/v1/register", async (AppDbContext db, [FromServices] HttpClient http, [FromServices] RabbitMQPublisher publisher, string email, string password, string username) =>
 {
     var user = await db.Users.FirstOrDefaultAsync(x => x.Email == email);
     if (user != null)
@@ -45,7 +46,7 @@ app.MapGet("/api/v1/register", async (AppDbContext db, [FromServices] HttpClient
     db.Users.Add(newUser);
     await db.SaveChangesAsync();
 
-    await publisher.PublishAsync(newUser, string.Empty, "NewUser");
+    await publisher.PublishAsync(newUser, string.Empty, RabbitMQQueues.UserRegistrationQueue);
 
     return Results.Created();
 });

@@ -3,11 +3,11 @@ using ReactChat.Shared.Messaging.Config;
 
 namespace ReactChat.Shared.Messaging.Connections
 {
-    public class RabbitMQConnectionFactory
+    public class RabbitMQConnector
     {
         private readonly RabbitMQSettings _settings;
 
-        public RabbitMQConnectionFactory(RabbitMQSettings settings)
+        public RabbitMQConnector(RabbitMQSettings settings)
         {
             _settings = settings;
         }
@@ -20,16 +20,15 @@ namespace ReactChat.Shared.Messaging.Connections
                 Port = _settings.Port,
                 UserName = _settings.UserName,
                 Password = _settings.Password,
-                VirtualHost = _settings.VirtualHost
             };
 
             return await factory.CreateConnectionAsync();
         }
 
-        public async Task<IModel> CreateChannelAsync()
+        public async Task<IChannel> CreateChannelAsync()
         {
             var connection = await CreateConnection();
-            return connection.CreateModel();
+            return await connection.CreateChannelAsync();
         }
     }
 }

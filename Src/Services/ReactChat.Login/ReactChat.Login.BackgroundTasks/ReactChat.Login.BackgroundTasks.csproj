@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\ReactChat.Shared.Messaging\ReactChat.Shared.Messaging.csproj" />
+    <ProjectReference Include="..\ReactChat.Login.Application\ReactChat.Login.Application.csproj" />
     <ProjectReference Include="..\ReactChat.Login.Infrastructure\ReactChat.Login.Infrastructure.csproj" />
   </ItemGroup>
 

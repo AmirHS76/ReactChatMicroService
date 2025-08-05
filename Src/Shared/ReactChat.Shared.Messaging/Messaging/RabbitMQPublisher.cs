@@ -7,27 +7,27 @@ namespace ReactChat.Shared.Messaging.Messaging
 {
     public class RabbitMQPublisher
     {
-        private readonly RabbitMQConnectionFactory _connectionFactory;
+        private readonly RabbitMQConnector _connectionFactory;
 
-        public RabbitMQPublisher(RabbitMQConnectionFactory connectionFactory)
+        public RabbitMQPublisher(RabbitMQConnector connectionFactory)
         {
             _connectionFactory = connectionFactory;
         }
 
-        public async Task PublishAsync<T>(T message, string exchange, string routingKey, IBasicProperties? properties = null, CancellationToken cancellationToken = default)
+        public async Task PublishAsync<T>(T message, string exchange, string routingKey, CancellationToken cancellationToken = default)
         {
             var channel = await _connectionFactory.CreateChannelAsync();
             var body = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(message));
 
-            channel.BasicPublish(
+            await channel.BasicPublishAsync(
                 exchange: exchange,
                 routingKey: routingKey,
-                basicProperties: properties,
-                body: body
+                mandatory: false,
+                body: body,
+                cancellationToken: cancellationToken
             );
-
-            channel.Close();
-            channel.Dispose();
+            await channel.CloseAsync(cancellationToken: cancellationToken);
+            await channel.DisposeAsync();
         }
     }
 }

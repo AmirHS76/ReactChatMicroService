@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
-using ReactChat.Login.Infrastructure.Messaging;
+using ReactChat.Login.Application.DTOs;
+using ReactChat.Shared.Messaging.Messaging;
 
 namespace ReactChat.Login.BackgroundTasks
 {
@@ -7,7 +8,18 @@ namespace ReactChat.Login.BackgroundTasks
     {
         private readonly RabbitMQConsumer _consumer = consumer;
 
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
-            => _consumer.ConsumeAsync(stoppingToken);
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        {
+            await _consumer.StartBasicConsumeAsync<NewUserDTO>(
+            queue: RabbitMQQueues.UserRegistrationQueue,
+            onMessage: async (message, ea) =>
+            {
+                Console.WriteLine($"Received message: {message.Email}");
+                await Task.Delay(1000);
+            },
+            autoAck: false,
+            cancellationToken: stoppingToken
+        );
+        }
     }
 }
